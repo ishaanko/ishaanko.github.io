@@ -4,7 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ishaanko.github.io',
+  site: 'https://ishaanko.github.io/',
+  base: 'site',
   image: {
     remotePatterns: [{ protocol: 'https' }],
   },
