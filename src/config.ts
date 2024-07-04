@@ -7,14 +7,14 @@ type Optional<T> = {
 }
 
 export const Common = {
-  host: 'https://nrsk.dev',
-  email: 'vlad@nrsk.dev',
+  host: 'https://ishaanko.github.io',
+  email: 'imishaanko@gmail.com',
   localeSite: 'en-US',
   localeOpenGraph: 'en_US',
-  title: 'Vladislav Mamon',
+  title: 'Ishaan Kothari',
   description:
-    `Software engineer building polished products and web experiences using modern tech stack. ` +
-    `Interested in Rust, functional programming, compilers and programming languages design.`
+    `Highschool student programming robots and competeting in coding competitions. ` +
+    `Interested in C++, web development, compilers and programming languages design.`
 } as const
 
 export const Theme = {
@@ -52,8 +52,8 @@ export const Seo: AstroSeo = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@norskeld',
-    creator: '@norskeld'
+    site: '@ishaanko',
+    creator: '@ishaanko'
   }
 }
 
