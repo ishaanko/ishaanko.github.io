@@ -1,16 +1,16 @@
 ---
-import { withSeoOptions, Common } from '@/config'
+import { withSeoOptions, Common } from "@/config";
 
-import { loadArticles, loadProjects } from '@/api/content'
-import { stripSuffix } from '@/api/utils'
+import { loadArticles, loadProjects } from "@/api/content";
+import { stripSuffix } from "@/api/utils";
 
-import Layout from '@/layouts/Index.astro'
+import Layout from "@/layouts/Index.astro";
 
-import ArticleList from '@/components/ArticleList.astro'
-import Link from '@/components/Link.astro'
+import ArticleList from "@/components/ArticleList.astro";
+import Link from "@/components/Link.astro";
 
-const canonical = Astro.url.href
-const ogImage = `${stripSuffix(canonical, '/')}/index.og.png`
+const canonical = Astro.url.href;
+const ogImage = `${stripSuffix(canonical, "/")}/index.og.png`;
 
 const props = withSeoOptions({
   canonical,
@@ -23,47 +23,50 @@ const props = withSeoOptions({
       secureUrl: ogImage,
       alt: Common.title,
     },
-  }
-})
+  },
+});
 
-const articles = await loadArticles({ sort: 'desc' })
-const projects = await loadProjects()
+const articles = await loadArticles({ sort: "desc" });
+const projects = await loadProjects();
 
 // Links.
-const email = `mailto:${Common.email}`
-const bandcamp = `https://hypnosense.bandcamp.com`
-const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzSwm0RSCnS70g_sVZXQ`
+const email = `mailto:${Common.email}`;
+const bandcamp = ``;
+const spotify = ``;
+const discord = `discord.com/users/762782226307350599`;
 ---
 
 <Layout {...props}>
   <!-- Introduction. -->
   <section class="flex flex-col gap-4">
     <h2
-      class:list={[
-        "text-2xl font-semibold",
-        "text-gray-900 dark:text-gray-50"
-      ]}
+      class:list={["text-2xl font-semibold", "text-gray-900 dark:text-gray-50"]}
     >
-      Hello!
+      Hello! 👋
     </h2>
 
     <p class="text-gray-800 dark:text-gray-300">
-      I'm a software engineer building polished products and web experiences using modern tech stack.
-      My expertise ranges from working independently to leading teams towards project success as a
-      tech/team lead.
+      I'm a highschool student programming FTC robots, competeting in
+      competitive coding contests, and building webpages using modern tech
+      stack. You can reach me at my <Link to={discord} external>Discord</Link>.
     </p>
 
+    <!--
     <p class="text-gray-800 dark:text-gray-300">
-      I'm also a Rust, TypeScript, and functional programming aficionado fascinated by design of
-      compilers and programming languages. Sometimes I write music, mostly drone-ambient, which is
-      available for free on my <Link to={bandcamp} external>Bandcamp</Link> and
+      I'm also a Rust, TypeScript, and functional programming aficionado
+      fascinated by design of compilers and programming languages. Sometimes I
+      write music, mostly drone-ambient, which is available for free on my <Link
+        to={bandcamp}
+        external>Bandcamp</Link
+      > and
       <Link to={spotify} external>Spotify</Link>.
     </p>
+     -->
 
     <hr
       class:list={[
         "my-2 w-1/12",
-        "border-t-2 border-gray-200 dark:border-gray-800"
+        "border-t-2 border-gray-200 dark:border-gray-800",
       ]}
     />
 
@@ -75,21 +78,13 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
   <!-- Articles. -->
   <section class="flex flex-col gap-4">
     <h2
-      class:list={[
-        "text-2xl font-semibold",
-        "text-gray-900 dark:text-gray-50"
-      ]
-    }>
+      class:list={["text-2xl font-semibold", "text-gray-900 dark:text-gray-50"]}
+    >
       Articles
     </h2>
 
-    <p
-      class:list={[
-        "mb-2",
-        "text-gray-800 dark:text-gray-300"
-      ]}
-    >
-      I occasionally write about Rust, TypeScript, functional programming, and other stuff.
+    <p class:list={["mb-2", "text-gray-800 dark:text-gray-300"]}>
+      I write about my experiences, tutorials, and whatever else I feel like.
     </p>
 
     <ArticleList items={articles} />
@@ -98,28 +93,20 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
   <!-- Projects. -->
   <section class="flex flex-col gap-4">
     <h2
-      class:list={[
-        "text-2xl font-semibold",
-        "text-gray-900 dark:text-gray-50"
-      ]}
+      class:list={["text-2xl font-semibold", "text-gray-900 dark:text-gray-50"]}
     >
       Projects
     </h2>
 
-    <p
-      class:list={[
-        "mb-2",
-        "text-gray-800 dark:text-gray-300"
-      ]}
-    >
-      Some of my OSS projects.
+    <p class:list={["mb-2", "text-gray-800 dark:text-gray-300"]}>
+      Some of my projects.
     </p>
 
     <ul
       class:list={[
         "grid gap-4 w-full max-w-[100vw]",
         "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
-        "[grid-auto-rows:minmax(0,auto)] sm:[grid-auto-rows:minmax(10rem,auto)]"
+        "[grid-auto-rows:minmax(0,auto)] sm:[grid-auto-rows:minmax(10rem,auto)]",
       ]}
     >
       {
@@ -130,15 +117,12 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
               "flex flex-col gap-2 p-4 rounded-lg transition-all ease-in-out duration-200",
               "bg-gray-100/50 dark:bg-gray-400/5",
               "hover:bg-gray-50 dark:hover:bg-gray-400/10",
-              "hover:shadow-neon hover:scale-[1.02]"
+              "hover:shadow-neon hover:scale-[1.02]",
             ]}
           >
             <Link
               to={project.data.url}
-              class:list={[
-                "group/title inline-flex w-min",
-                "!font-medium"
-              ]}
+              class:list={["group/title inline-flex w-min", "!font-medium"]}
               underline={false}
               external
             >
@@ -147,7 +131,7 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
                 class:list={[
                   "inline select-none transition-colors",
                   "text-gray-500 dark:text-gray-400",
-                  "group-hover/title:text-crayola-500 dark:group-hover/title:text-crayola-300"
+                  "group-hover/title:text-crayola-500 dark:group-hover/title:text-crayola-300",
                 ]}
               >
                 {project.data.language.ext}
@@ -158,7 +142,7 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
               class:list={[
                 "cursor-default transition-colors",
                 "text-gray-500 dark:text-gray-400",
-                "group-hover/card:text-gray-700 dark:group-hover/card:text-gray-300"
+                "group-hover/card:text-gray-700 dark:group-hover/card:text-gray-300",
               ]}
               set:html={project.data.description}
             />
@@ -168,7 +152,7 @@ const spotify = `https://open.spotify.com/artist/1EqX9erOVQHCVlAwGihPS2?si=U6WzS
     </ul>
 
     <p class="text-gray-800 dark:text-gray-300">
-      <Link to="https://github.com/norskeld" external underline={false}>
+      <Link to="https://github.com/ishaanko" external underline={false}>
         See all projects &srarr;
       </Link>
     </p>
