@@ -33,14 +33,42 @@ export const languages: Record<z.infer<typeof language>, Language> = {
     name: 'F#',
     ext: '.fs',
     color: ['#b845fc', '#b845fc']
-  }
+  },
+  python: {
+    kind: 'python',
+    name: 'Python',
+    ext: '.py',
+    color: ['#5e5086', '#8576ad']
+  },
+  java: {
+    kind: 'java',
+    name: 'Java',
+    ext: '.java',
+    color: ['#5e5086', '#8576ad']
+  },
+  javascript: {
+    kind: 'javascript',
+    name: 'Javascript',
+    ext: '.js',
+    color: ['#5e5086', '#8576ad']
+  },
+  cpp: {
+    kind: 'cpp',
+    name: 'C++',
+    ext: '.cpp',
+    color: ['#5e5086', '#8576ad']
+  },
 }
 
 const language = z.union([
   z.literal('typescript'),
   z.literal('rust'),
   z.literal('haskell'),
-  z.literal('fsharp')
+  z.literal('fsharp'),
+  z.literal('python'),
+  z.literal('java'),
+  z.literal('javascript'),
+  z.literal('cpp')
 ])
 
 export const projectsSchema = z.object({

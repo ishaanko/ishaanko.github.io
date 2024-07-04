@@ -93,7 +93,7 @@ export async function createOgImage({ title, titleColor }: OgOptions): Promise<B
                           opacity: 0.5,
                           fontSize: 48
                         },
-                        children: 'nrsk.dev'
+                        children: 'ishaanko.github.io'
                       }
                     },
 
