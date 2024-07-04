@@ -13,7 +13,8 @@ import { Common } from './src/config'
 import { stripSuffix } from './src/api/utils'
 
 export default defineConfig({
-  site: Common.host,
+  site: 'https://ishaanko.github.io/site',
+  base: 'site',
   trailingSlash: 'never',
   compressHTML: true,
   build: {
