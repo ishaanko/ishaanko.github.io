@@ -1,10 +1,10 @@
 ---
 export interface Props {
-  class?: string
-  value?: string
+  class?: string;
+  value?: string;
 }
 
-const { value = '&middot;', class: className } = Astro.props
+const { value = "&middot;", class: className } = Astro.props;
 ---
 
 <span
@@ -12,7 +12,7 @@ const { value = '&middot;', class: className } = Astro.props
   class:list={[
     "select-none px-2",
     "text-gray-500 dark:text-gray-400",
-    className
+    className,
   ]}
   set:html={value}
 />

@@ -1,16 +1,16 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ViewTransitions } from "astro:transitions";
 
-import { SEO, type Props as AstroSeo } from 'astro-seo'
+import { SEO, type Props as AstroSeo } from "astro-seo";
 
-import { Common, Theme } from '@/config'
+import { Common, Theme } from "@/config";
 
-import ThemeScript from '@/components/ThemeScript.astro'
+import ThemeScript from "@/components/ThemeScript.astro";
 
 export interface Props extends AstroSeo {}
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={Common.localeSite} prefix="og: https://ogp.me/ns#" class="dark">
   <head>
     <meta charset="UTF-8" />
@@ -28,10 +28,10 @@ export interface Props extends AstroSeo {}
 
     <style is:inline>
       @font-face {
-        font-family: 'Inter';
+        font-family: "Inter";
         font-weight: 400 900;
         font-display: block;
-        src: url('/fonts/inter-var-latin.woff2') format('woff2');
+        src: url("/fonts/inter-var-latin.woff2") format("woff2");
       }
     </style>
 
@@ -54,7 +54,7 @@ export interface Props extends AstroSeo {}
     <div
       class:list={[
         "flex flex-col items-center gap-16 sm:gap-20",
-        "min-h-screen"
+        "min-h-screen",
       ]}
     >
       <slot />

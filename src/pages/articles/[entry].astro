@@ -1,32 +1,32 @@
 ---
-import { withSeoOptions, Common } from '@/config'
+import { withSeoOptions, Common } from "@/config";
 
-import { loadArticles, type ArticleEntry } from '@/api/content'
-import { formatDate, stripSuffix } from '@/api/utils'
-import { ogImageUrl } from '@/api/og'
+import { loadArticles, type ArticleEntry } from "@/api/content";
+import { formatDate, stripSuffix } from "@/api/utils";
+import { ogImageUrl } from "@/api/og";
 
-import Layout from '@/layouts/Page.astro'
+import Layout from "@/layouts/Page.astro";
 
-import Article from '@/components/Article.astro'
+import Article from "@/components/Article.astro";
 
 export interface Props {
-  entry: ArticleEntry
+  entry: ArticleEntry;
 }
 
 export async function getStaticPaths() {
-  const articlesRaw = await loadArticles()
+  const articlesRaw = await loadArticles();
 
   return articlesRaw.map((entry) => ({
     params: { entry: entry.slug },
-    props: { entry }
-  }))
+    props: { entry },
+  }));
 }
 
-const { entry } = Astro.props
-const { title, description, createdAt, updatedAt } = entry.data
+const { entry } = Astro.props;
+const { title, description, createdAt, updatedAt } = entry.data;
 
-const canonical = stripSuffix(Astro.url.href, '.html')
-const ogImage = ogImageUrl(canonical)
+const canonical = stripSuffix(Astro.url.href, ".html");
+const ogImage = ogImageUrl(canonical);
 
 const props = withSeoOptions({
   title: `${title} – ${Common.title}`,
@@ -35,12 +35,12 @@ const props = withSeoOptions({
   openGraph: {
     basic: {
       title,
-      type: 'article',
+      type: "article",
       image: ogImage.url,
-      url: canonical
+      url: canonical,
     },
     optional: {
-      description
+      description,
     },
     image: {
       url: ogImage.url,
@@ -48,14 +48,14 @@ const props = withSeoOptions({
       alt: title,
     },
     article: {
-      authors: ['Vladislav Mamon'],
-      publishedTime: formatDate(createdAt, 'yyyy-LL-dd'),
+      authors: ["Vladislav Mamon"],
+      publishedTime: formatDate(createdAt, "yyyy-LL-dd"),
       ...(updatedAt && {
-        modifiedTime: formatDate(updatedAt, 'yyyy-LL-dd')
-      })
-    }
-  }
-})
+        modifiedTime: formatDate(updatedAt, "yyyy-LL-dd"),
+      }),
+    },
+  },
+});
 ---
 
 <Layout {...props}>

@@ -1,23 +1,27 @@
 ---
-import { tw } from '@nrsk/tw'
+import { tw } from "@nrsk/tw";
 
 export interface Props {
-  open?: boolean
-  prose?: boolean
-  class?: string
+  open?: boolean;
+  prose?: boolean;
+  class?: string;
 }
 
-const { open = false, prose = false, class: className } = Astro.props
+const { open = false, prose = false, class: className } = Astro.props;
 
 const proseClasses = tw`
   prose prose-vm dark:prose-invert
   prose-headings:font-semibold
-`
+`;
 ---
 
 <details
   open={open}
-  class:list={[prose && proseClasses, "group/collapsible w-full max-w-none", className]}
+  class:list={[
+    prose && proseClasses,
+    "group/collapsible w-full max-w-none",
+    className,
+  ]}
 >
   <summary
     class:list={[
@@ -31,9 +35,10 @@ const proseClasses = tw`
     <div
       class:list={[
         "before:font-mono before:content-['+'] before:mr-2",
-        "group-open/collapsible:before:content-['-']"
+        "group-open/collapsible:before:content-['-']",
       ]}
-    />
+    >
+    </div>
 
     <div>
       <slot name="title" />

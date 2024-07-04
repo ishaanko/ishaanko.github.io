@@ -1,18 +1,18 @@
 ---
-import { slideVertically } from '@/api/transitions'
+import { slideVertically } from "@/api/transitions";
 
 export interface Props {
-  class?: string
+  class?: string;
 }
 
-const { class: className } = Astro.props
+const { class: className } = Astro.props;
 ---
 
 <main
   class:list={[
     "flex flex-col justify-center gap-12",
     "w-full max-w-2xl mx-auto px-8 md:px-0",
-    className
+    className,
   ]}
   transition:animate={slideVertically()}
 >
