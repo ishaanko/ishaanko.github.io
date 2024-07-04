@@ -8,8 +8,6 @@ import rehypeSlug from 'rehype-slug'
 import { h } from 'hastscript'
 import mdx from '@astrojs/mdx'
 
-import { Common } from './src/config'
-
 import { stripSuffix } from './src/api/utils'
 
 export default defineConfig({
