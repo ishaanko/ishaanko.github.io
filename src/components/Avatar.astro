@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+
+import avatar from '@/assets/images/avatar-bw.png'
+
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<Image
+  src={avatar}
+  class:list={["rounded-full", className]}
+  title="Hey, that's me!"
+  alt="Vladislav's selfie."
+  loading="eager"
+  width={256}
+  height={256}
+/>

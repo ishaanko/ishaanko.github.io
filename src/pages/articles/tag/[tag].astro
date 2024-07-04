@@ -1,0 +1,70 @@
+---
+import { withSeoOptions, Common } from '@/config'
+
+import { loadTags, type ArticleEntry } from '@/api/content'
+import { stripSuffix } from '@/api/utils'
+import { ogImageUrl } from '@/api/og'
+
+import Layout from '@/layouts/Page.astro'
+
+import ArticleList from '@/components/ArticleList.astro'
+import Heading from '@/components/Heading.astro'
+
+export interface Props {
+  tag: string
+  articles: Array<ArticleEntry>
+}
+
+export async function getStaticPaths() {
+  const tags = await loadTags()
+
+  return [...tags].map(({ tag, articles }) => {
+    return {
+      params: { tag },
+      props: { tag, articles }
+    }
+  })
+}
+
+const { tag, articles } = Astro.props
+
+const title = `Articles tagged with #${tag} – ${Common.title}`
+const description = `Articles tagged with #${tag}.`
+
+const canonical = stripSuffix(Astro.url.href, '.html')
+const ogImage = ogImageUrl(canonical)
+
+const props = withSeoOptions({
+  title,
+  description,
+  canonical,
+  noindex: true,
+  openGraph: {
+    basic: {
+      title: `Articles tagged with #${tag}`,
+      type: 'website',
+      image: ogImage.url,
+      url: canonical
+    },
+    optional: {
+      description
+    },
+    image: {
+      url: ogImage.url,
+      secureUrl: ogImage.secureUrl,
+      alt: title,
+    },
+  }
+})
+---
+
+<Layout {...props}>
+  <Heading
+    class:list={[
+      "before:content-['#'] before:font-mono",
+      "before:text-gray-400 dark:before:text-gray-400"
+    ]}
+    title={tag}
+  />
+  <ArticleList items={articles} />
+</Layout>

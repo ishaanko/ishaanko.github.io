@@ -1,0 +1,63 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+import { SEO, type Props as AstroSeo } from 'astro-seo'
+
+import { Common, Theme } from '@/config'
+
+import ThemeScript from '@/components/ThemeScript.astro'
+
+export interface Props extends AstroSeo {}
+---
+
+<!DOCTYPE html>
+<html lang={Common.localeSite} prefix="og: https://ogp.me/ns#" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={Theme.themeDark} />
+
+    {/* Fonts. */}
+    <link
+      rel="preload"
+      href="/fonts/inter-var-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <style is:inline>
+      @font-face {
+        font-family: 'Inter';
+        font-weight: 400 900;
+        font-display: block;
+        src: url('/fonts/inter-var-latin.woff2') format('woff2');
+      }
+    </style>
+
+    {/* Favicons & Webmanifest. */}
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    {/* OpenGraph & other essential props like `title` and `description`. */}
+    <SEO {...Astro.props} />
+
+    {/* View transitions. */}
+    <ViewTransitions />
+  </head>
+
+  <body>
+    <ThemeScript transition:persist />
+
+    <div
+      class:list={[
+        "flex flex-col items-center gap-16 sm:gap-20",
+        "min-h-screen"
+      ]}
+    >
+      <slot />
+    </div>
+  </body>
+</html>

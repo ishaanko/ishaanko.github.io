@@ -1,0 +1,6 @@
+order: 1
+name: sigma
+description: TypeScript parser combinator library for building fast and convenient parsers
+url: https://sigma.nrsk.dev
+language: typescript
+wip: false

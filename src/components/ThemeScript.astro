@@ -1,0 +1,31 @@
+---
+import { Theme } from '@/config'
+---
+
+<script is:inline define:vars={Theme}>
+  setInitialTheme()
+
+  function setInitialTheme() {
+    const rootEl = document.documentElement
+    const metaThemeEl = document.querySelector('meta[name="theme-color"]')
+
+    const schemeMedia = window.matchMedia('(prefers-color-scheme: dark)')
+    const schemeStorage = localStorage.getItem(localStorageKey)
+
+    let isDark = schemeStorage === classDark
+
+    if (schemeStorage) {
+      rootEl.className = isDark ? classDark : classLight
+    } else if (schemeMedia.matches) {
+      rootEl.className = classDark
+      isDark = true
+    } else {
+      rootEl.className = classLight
+      isDark = false
+    }
+
+    metaThemeEl?.setAttribute('content', isDark ? themeDark : themeLight)
+  }
+
+  document.addEventListener('astro:after-swap', setInitialTheme)
+</script>

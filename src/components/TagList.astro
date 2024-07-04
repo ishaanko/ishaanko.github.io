@@ -1,0 +1,26 @@
+---
+import TagLink from './TagLink.astro'
+import TagText from './TagText.astro'
+
+export interface Tag {
+  tag: string
+  url?: string
+}
+
+export interface Props {
+  class?: string
+  items: Array<Tag>
+}
+
+const { class: className, items } = Astro.props
+---
+
+<span class={className}>
+  {
+    items.map(
+      (item) => item.url
+        ? <TagLink url={item.url}>{item.tag}</TagLink>
+        : <TagText>{item.tag}</TagText>
+    )
+  }
+</span>

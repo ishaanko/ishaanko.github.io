@@ -1,0 +1,44 @@
+---
+import type { ArticleEntry } from '@/api/content'
+
+import Date from './Date.astro'
+import Link from './Link.astro'
+
+export interface Props {
+  items: Array<ArticleEntry>
+}
+
+const { items } = Astro.props
+---
+
+<ul class="flex flex-col gap-4">
+  {
+    items.map((article) => (
+      <li class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+        <Link
+          to={'/articles/' + article.slug}
+          class="font-medium flex-none"
+          underline={false}
+        >
+          {article.data.title}
+        </Link>
+
+        <div
+          class:list={[
+            "hidden sm:block w-full",
+            "border-b-2 border-dotted",
+            "border-gray-200 dark:border-gray-800"
+          ]}
+        />
+
+        <Date
+          created={article.data.createdAt}
+          class:list={[
+            "flex-none text-sm",
+            "text-gray-500 dark:text-gray-400"
+          ]}
+        />
+      </li>
+    ))
+  }
+</ul>
