@@ -11,8 +11,6 @@
     "astro": "astro",
     "build": "astro build",
     "dev": "astro dev",
-    "fmt": "prettier --write \"**/*.{js,ts,json}\"",
-    "prepare": "husky",
     "preview": "astro preview"
   },
   "devDependencies": {
@@ -28,7 +26,6 @@
     "astro-seo": "^0.8.3",
     "date-fns": "^3.6.0",
     "hastscript": "^9.0.0",
-    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "nanoid": "^5.0.7",
     "prettier": "^3.2.5",
