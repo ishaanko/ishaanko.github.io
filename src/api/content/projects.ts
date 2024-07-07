@@ -22,18 +22,6 @@ export const languages: Record<z.infer<typeof language>, Language> = {
     ext: '.rs',
     color: ['#a9643d', '#dea584']
   },
-  haskell: {
-    kind: 'haskell',
-    name: 'Haskell',
-    ext: '.hs',
-    color: ['#5e5086', '#8576ad']
-  },
-  fsharp: {
-    kind: 'fsharp',
-    name: 'F#',
-    ext: '.fs',
-    color: ['#b845fc', '#b845fc']
-  },
   python: {
     kind: 'python',
     name: 'Python',
@@ -63,8 +51,6 @@ export const languages: Record<z.infer<typeof language>, Language> = {
 const language = z.union([
   z.literal('typescript'),
   z.literal('rust'),
-  z.literal('haskell'),
-  z.literal('fsharp'),
   z.literal('python'),
   z.literal('java'),
   z.literal('javascript'),
