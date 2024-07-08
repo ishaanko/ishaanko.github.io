@@ -9,9 +9,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
-      "~/*": ["public/*"],
-      "@/*": ["src/*"]
+      "~/*": [
+        "public/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     },
-    "types": ["astro/client", "vite/client"]
+    "types": [
+      "astro/client",
+      "vite/client"
+    ]
   }
 }
