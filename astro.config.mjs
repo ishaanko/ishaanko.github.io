@@ -30,5 +30,4 @@ export default defineConfig({
     UnoCss({ injectReset: true }),
   ],
   output: "hybrid",
-  adapter: vercel(),
 });
