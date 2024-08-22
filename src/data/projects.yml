@@ -26,19 +26,3 @@ android:
       url: https://github.com/xirf/yomutoki
       description: My first android app
       image: i-solar-smartphone-2-bold-duotone
-
-web:
-    - name: ASCII Image
-      description: Converts images to ASCII with image background
-      url: https://github.com/xirf/ascii-image
-      image: i-solar-gallery-favourite-bold-duotone
-    - name: DBook
-      description: Library admin panel with Astro
-      url:
-      image: i-solar-book-bookmark-bold-duotone
-
-fun:
-    - name: Be My Valentine
-      description: Classic button game
-      url: https://github.com/xirf/bmyv
-      image: i-solar-heart-pulse-2-bold-duotone
