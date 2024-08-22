@@ -24,6 +24,7 @@ As a web developer that already familiar with TypeScript, I found Kotlin is a bi
 ```kt title="Kotlin.kt"
 val a: Int = 1
 ```
+
 <br />
 
 ```ts title="TypeScript.ts"
@@ -40,6 +41,7 @@ fun String.removeFirstLastChar(): String = this.substring(1, this.length - 1)
 val result = "Hello".removeFirstLastChar()
 // result: ell
 ```
-😳 Isn't that exciting? In TypeScript, achieving the same functionality would require much more effort and code. 
+
+😳 Isn't that exciting? In TypeScript, achieving the same functionality would require much more effort and code.
 
 Kotlin's concise syntax and powerful features, such as extension functions, allow developers to write cleaner and more expressive code, enhancing productivity and making programming tasks more enjoyable.
