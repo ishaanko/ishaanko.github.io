@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # Use bun only
 pnpm-lock.yaml
+
+# other
+example.md
