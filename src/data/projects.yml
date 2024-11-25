@@ -4,5 +4,21 @@
 robotics:
     - name: CenterStage
       url: https://github.com/FTC-19669/CenterStage
-      description: FTC CenterStage 2023-2024
+      description: FTC 19669 codebase for CenterStage 2023 - 2024
       image: i-solar-command-outline
+
+    - name: Into The Deep
+      url: https://github.com/FTC-19669/IntoTheDeepV2
+      description: FTC 19669 codebase for Into The Deep 2024 - 2025
+      image: i-solar-command-outline
+
+    - name: Hashrunner
+      url: https://github.com/FTC-19669/Hashrunner
+      description: Script based processing for coding FTC robots
+      image: i-solar-code-outline
+
+web development:
+    - name: Personal Website
+      url: https://github.com/ishaanko/ishaanko.github.io
+      description: My personal website
+      image: i-solar-compass-square-linear
