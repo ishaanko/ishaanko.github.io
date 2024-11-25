@@ -1,6 +1,5 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import UnoCss from "unocss/astro";
 import yaml from "@rollup/plugin-yaml";
@@ -29,6 +28,5 @@ export default defineConfig({
     sitemap(),
     UnoCss({ injectReset: true }),
   ],
-  output: "hybrid",
-  adapter: vercel(),
+  output: "static",
 });
