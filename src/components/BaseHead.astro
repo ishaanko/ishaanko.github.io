@@ -22,8 +22,8 @@ const {
 <link rel="canonical" href={canonicalURL} />
 <script defer is:inline>
   !(function () {
-    var e = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var t = localStorage.getItem("isDarkMode") || "auto";
+    let e = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let t = localStorage.getItem("isDarkMode") || "auto";
     if (t === "true" || (e && t !== "false")) {
       document.documentElement.classList.toggle("dark", !0);
     }
