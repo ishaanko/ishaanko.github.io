@@ -1,11 +1,10 @@
 {
   "name": "ishaanko",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,11 +18,8 @@
     "@iconify-json/solar": "^1.1.9",
     "@rollup/plugin-yaml": "^4.1.2",
     "@typescript-eslint/parser": "^7.13.1",
-    "astro": "^4.14.4",
+    "astro": "4.16.1",
     "astro-expressive-code": "^0.35.3",
-    "eslint": "latest",
-    "eslint-plugin-astro": "^1.2.2",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
     "typescript": "^5.0.0",
     "unocss": "^0.61.0"
   },
