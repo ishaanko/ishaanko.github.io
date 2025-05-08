@@ -8,10 +8,10 @@ export async function getStaticPaths() {
 
   return posts
     .sort(
-      (a, b) =>
+      (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
         new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
     )
-    .map((post, i) => ({
+    .map((post: CollectionEntry<"blog">, i: number) => ({
       params: { slug: post.slug },
       props: {
         post,

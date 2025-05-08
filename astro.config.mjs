@@ -1,13 +1,9 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
-import UnoCss from "unocss/astro";
+import UnoCSS from "unocss/astro";
 import yaml from "@rollup/plugin-yaml";
-
-import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
-import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import expressiveCode from "astro-expressive-code";
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +14,8 @@ export default defineConfig({
   integrations: [
     expressiveCode({
       themes: ["catppuccin-frappe", "catppuccin-latte"],
-      plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
+      collapsibleSections: true,
+      lineNumbers: true,
       defaultProps: {
         showLineNumbers: true,
         wrap: true,
@@ -26,7 +23,9 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
-    UnoCss({ injectReset: true }),
+    UnoCSS({
+      injectReset: "@unocss/reset/tailwind.css"
+    }),
   ],
   output: "static",
 });
