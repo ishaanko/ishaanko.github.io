@@ -5,7 +5,6 @@ import UnoCSS from "unocss/astro";
 import yaml from "@rollup/plugin-yaml";
 import expressiveCode from "astro-expressive-code";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://ishaanko.github.io",
   vite: {
@@ -14,8 +13,8 @@ export default defineConfig({
   integrations: [
     expressiveCode({
       themes: ["catppuccin-frappe", "catppuccin-latte"],
-      collapsibleSections: true,
-      lineNumbers: true,
+      collapsible: true,
+      showLineNumbers: true,
       defaultProps: {
         showLineNumbers: true,
         wrap: true,
@@ -24,8 +23,8 @@ export default defineConfig({
     mdx(),
     sitemap(),
     UnoCSS({
-      injectReset: "@unocss/reset/tailwind.css"
+      injectReset: true
     }),
   ],
-  output: "static",
+  output: "static"
 });

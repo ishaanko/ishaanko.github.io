@@ -12,8 +12,8 @@
     "@astrojs/mdx": "^4.2.6",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.1",
-    "@expressive-code/plugin-collapsible-sections": "^0.35.3",
-    "@expressive-code/plugin-line-numbers": "^0.35.3",
+    "@expressive-code/plugin-collapsible-sections": "^0.41.2",
+    "@expressive-code/plugin-line-numbers": "^0.41.2",
     "@iconify-json/mynaui": "^1.1.7",
     "@iconify-json/solar": "^1.1.9",
     "@rollup/plugin-yaml": "^4.1.2",
@@ -24,11 +24,21 @@
     "unocss": "^0.61.0"
   },
   "devDependencies": {
+    "@eslint/config-array": "^0.20.0",
+    "@eslint/object-schema": "^2.1.6",
     "@types/bun": "latest",
-    "@unocss/reset": "^0.61.0"
+    "@unocss/reset": "^0.61.0",
+    "eslint": "^8.57.1"
   },
   "module": "index.ts",
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "overrides": {
+    "rimraf": "^4.0.0",
+    "glob": "^10.0.0",
+    "inflight": "^2.0.0",
+    "@humanwhocodes/object-schema": "npm:@eslint/object-schema@^2.0.0",
+    "@humanwhocodes/config-array": "npm:@eslint/config-array@^0.20.0"
   }
 }
