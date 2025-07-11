@@ -3,7 +3,7 @@
 ---
 
 <button
-  class="toggle-theme flex items-center"
+  class="toggle-theme flex items-center p-2 cursor-pointer bg-transparent border-none outline-none z-10 relative"
   id="toggle-theme"
   aria-label="Toggle theme"
   title="Toggle theme"
@@ -13,6 +13,8 @@
 
 <script is:inline>
   document.addEventListener("astro:page-load", () => {
+    console.log("Theme toggle script loaded");
+
     let theme = localStorage.getItem("isDarkMode") || "auto";
     let windowTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
     let isDarkMode = theme === "true" || (theme === "auto" && windowTheme);
@@ -25,7 +27,8 @@
       localStorage.setItem("isDarkMode", "false");
     }
 
-    function toogleDarkMode() {
+    function toggleDarkMode() {
+      console.log("Toggle dark mode function called");
       const isTransitionAvailable =
         document.startViewTransition &&
         !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -33,6 +36,8 @@
       if (!isTransitionAvailable) {
         let isDark = localStorage.getItem("isDarkMode") === "true";
         document.documentElement.classList.toggle("dark", !isDark);
+        localStorage.setItem("isDarkMode", (!isDark).toString());
+        console.log("Theme toggled to:", !isDark ? "dark" : "light");
         return;
       }
 
@@ -48,7 +53,7 @@
           element.classList.remove("dark");
         }
 
-        localStorage.setItem("isDarkMode", isDark);
+        localStorage.setItem("isDarkMode", isDark.toString());
       });
 
       transition.ready.then(() => {
@@ -83,9 +88,18 @@
       });
     }
 
-    document
-      .getElementById("toggle-theme")
-      .addEventListener("click", toogleDarkMode);
+    const toggleButton = document.getElementById("toggle-theme");
+    if (toggleButton) {
+      console.log("Toggle button found, adding event listener");
+      toggleButton.addEventListener("click", toggleDarkMode);
+
+      // Add a test to verify the button is clickable
+      toggleButton.addEventListener("click", function () {
+        console.log("Button clicked!");
+      });
+    } else {
+      console.error("Toggle button not found!");
+    }
   });
 
   document.addEventListener("astro:after-swap", () => {

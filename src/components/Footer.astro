@@ -1,9 +1,15 @@
 ---
-const { isBlog } = Astro.props;
+// Props interface for potential future use
+interface Props {
+  isBlog?: boolean;
+}
+
+const { isBlog = false } = Astro.props;
 ---
 
 <footer class="py-4">
   <p class="px4 text-xs text-center">
     &copy; 2025 | Ishaan Kothari | All Rights Reserved
+    {isBlog && " | Blog"}
   </p>
 </footer>
